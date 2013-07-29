@@ -482,11 +482,9 @@ CodeMirror.defineMode('rst-base', function (config) {
         },
 
         innerMode: function (state) {
-            return (state.tmp)
-                ? {state: state.tmp.local, mode: state.tmp.mode}
-                : (state.ctx)
-                ? {state: state.ctx.local, mode: state.ctx.mode}
-                : null;
+            return state.tmp ? {state: state.tmp.local, mode: state.tmp.mode}
+                 : state.ctx ? {state: state.ctx.local, mode: state.ctx.mode}
+                             : null;
         },
 
         token: function (stream, state) {
